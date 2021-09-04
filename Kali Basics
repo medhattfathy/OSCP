@@ -6,3 +6,4 @@ Finding Your Way Around Kali
 /tmp- temporary files (typically deleted on boot)
 /usr/bin - applications (apt, neat, nmap, etc.)
 /usr/share- application support and data files
+
