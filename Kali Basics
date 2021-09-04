@@ -50,7 +50,24 @@ rm -rf  Remove recursively and its content. Very dangerous command!
 
 Finding Files
 
+Find 
 Find is slower than locate but a lot more thorough. You can search for files recursively and with regex and a lot of other features.
 # This will send all permissions denied outputs to dev/null.
 find / -name file 2>/dev/null
+
+Locate
+Locate is really fast because it relies on an internal database. So in order to have it updated you need to run:
+sudo updatedb
+
+Then you can easily find stuff like this:
+locate filename
+
+Which
+Outputs the path of the binary that you are looking for. It searches through the directories that are defined in your $PATH variable.
+which bash 
+
+----
+
+Managing Kali Linux Services
+
 
