@@ -146,3 +146,34 @@ dpkg is the core tool used to install a package  it does not require an Internet
 kali@kali:-$ sudo dpkg -i man-db_2.1.e.2-s_amd64.deb 
 
 ------------------
+
+
+
+The Bash Environment 
+
+kali@kali:-$ echo $PATH
+/usr/local/sbi n:/usr/local/bin:/usr/sbin:/usr/bin :/sbin:/bin
+Listing 28 · Using echo to display the PATH environment variable
+Some other useful environment variables include USER. PWD. and HOME, which hold the values of
+the current terminal user's username, present working directory, and home directory respectively:
+kali@kali:-$ echo $USER
+kali
+kali@kali:~$ echo $PWD
+/home/kali
+kali@kali:-$ echo $HOME
+/home/kali 
+
+
+An environment variable can be defined with the export command. For example, if we are scanning
+a target and don't want to type in the system's IP address repeatedly, we can quickly assign it an
+environment variable and use that instead: 
+
+kali@kali:~$ export b=le.11.1.220
+kali@ka1i:~$ ping -c 2 $b
+PING 10.11.1.220 (10.11.1.220) 56(84) bytes of data.
+64 bytes from 10.11.1.220: icmp_seq=l ttl=62 time=2.23 ms
+64 bytes from 10.11.1.220: icmp_seq=2 ttl=62 time=l.56 ms
+--- 10.11.1.220 ping statistics ---
+2 packets transmitted, 2 recei ved , 0% packet loss, time 1002ms
+rtt min/avg/max/mdev = 1.563/1.900/2.238/0.340 ms
+
