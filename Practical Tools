@@ -1,0 +1,53 @@
+Netcat 
+
+We can use client mode to connect to any TCP/UDP port, allowing us to:
+Check if a port is open or closed.
+Read a banner from the service listening on a port
+Connect to a network service manually. 
+
+kali@kali:~$ nc -nv 10,11,8,22 118
+(UNKNOWN) [10.11.0.22] 110 (pop3) open
++OK POP3 server lab ready <00003.1277944@lab>
+
+UNKNOWN) [10.11.0.22) 110 (pop3) open
++OK POP3 server lab ready <00004.1546827@lab>
+USER offsec
++OK offsec welcome here
+PASS offsec
+-ERR unable to tock mai l box
+quit
++OK POP3 serve r lab signing off.
+kali@kali:-$ 
+
+
+Listening on a TCP/UDP Port
+
+C:\Users\offsec> nc -nlvp 4444
+listening on [any] 4444 ...
+
+
+kali @kali:-$ nc -nv 10.11.e.22 4444
+(UNKNOWN ) (10.11 .0 . 22] 4444 (?) open
+This chat is from the linux machine
+
+
+Our text will be sent to the Windows machine over TCP port 4444 and we can continue the #chat•
+from the Windows machine:
+C:\Users\offsec> nc -nlvp 4444
+listening on [any] 4444 ...
+connect to [10.11.0.22] from <UNKNOWN) [10.11.0.4) 43447
+This chat is from the linux machine
+This chat is from the windows machine
+
+
+ Transferring Files with Netcat
+ 
+ C:\Users\offsec> nc - nlvp 4444 > incoming.exe
+listeni ng on [any] 4444 ...
+ 
+ kali@kali:-$ locate wget. exe
+/usr/share/windows-resources/binaries/wget.exe
+kali@kali:-$ nc -nv 10.11.0.22 4444 < /usr/share/windows-resources/binaries/wget.exe
+(UNKNOWN) (10.11.0.22) 4444 (?} open
+
+
