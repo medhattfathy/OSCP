@@ -177,3 +177,62 @@ PING 10.11.1.220 (10.11.1.220) 56(84) bytes of data.
 2 packets transmitted, 2 recei ved , 0% packet loss, time 1002ms
 rtt min/avg/max/mdev = 1.563/1.900/2.238/0.340 ms
 
+We will use the $$ variable to display the process ID of the current shell instance to make sure that
+we are indeed issuing commands in two different shells:
+kali@kali:~$ echo"$$"
+1827
+kali@ka1 i: ~$ var="My Var"
+kali@kali:~$ echo $var
+My Var
+kali@kal i:~$ bash
+kali@kali:-$ echo"$$"
+1908
+kali@kali:-$ echo $var
+kali@kali:- $ exit
+exit
+kali@kali:~$ echo $var
+My Var
+kali@kali:~$ export othervar="Global Var"
+kali@ka1i:~$ echo $othervar
+Global Var
+kali@kali:~$ bash
+kali@kali:~$ echo $othervar
+Gl obal Var
+kali@kali:-$ exit
+exi t
+kali@kali:~$ 
+
+
+There are many other environment variables defined by default in Kali Linux. We can view these by
+running env at the command line:
+kali@kali:~$ env
+SHELL=/bin/bash
+PWD=/home/kali
+XDG_SESSION_DESKTOP=lightdm-xsession
+LOGNAME=kali
+XDG_SESSION_TYPE=xll
+XAUTHORITY=/home/kal i/.Xauthority
+XDG_GREETER_DATA_DIR=/var/lib/lightdm/data/kali
+HOME= /home/kali
+TERM=xte rm-256color
+USER=kali 
+
+
+
+Bash maintains a history of commands that have been entered,
+which can be displayed with the history command.
+
+kali@kali:~$ history
+1 cat /etc/lsb-release
+2 clear
+3 history
+
+Another helpful history shortcut is ! !, which repeats the last command that was executed during
+our termf nal sessf on:
+kali@kali:~$ sudo systemct\ restart apache2
+kali@kal i :~$ ! !
+sudo systemctl restart apache2
+kali@kali:~$ 
+
+*By default. the command history is saved to the .baslulistory file in the user home directory. Two
+environment variables control the history size: Hf STSf ZE and HfSTFf LESfZE
