@@ -337,7 +337,204 @@ hello friend
 
 
  Managing Processes
+ Backgrounding Processes (bg)
+ kali@kali:~$ ping -c 400 tocalhost > ping_resutts.txt & 
+
+
+
+kali @kali:~$ ping -c 400 tocalhost > ping_resutts.txt
+"Z
+[l]+ Stopped ping -c 400 localhost > ping_results.txt
+kali@kal i :~$ bg
+[l ]+ ping -c 400 localhost > ping_results.txt
+kali @kali:~$ 
+
+
  
  
- 
+Jobs Control:jobs and fg 
+
+kali@kali:-$ ping - c 488 tocathost > pi ng_res utts .txt
+"Z
+[l]+ Stopped ping -c 400 localhost > ping_results.txt
+kali@kali:-$ find / -name s bd.exe
+"Z
+[2]+ Stopped find/ -name sbd.exe
+kali@ka1i:-$ jobs
+(1)- Stopped
+[2]+ Stopped
+kali@kali:~$ fg %1
+ping -c 400 localhost > ping_results.txt
+find/ -name sbd.exe
+ping -c 400 localhost > ping_results.txt
+"C
+kali@ka1i:~$ jobs
+[2]+ Stopped
+kali@kali:-$ f g
+find/ -name sbd.exe
+find/ -name sbd.exe
+/usr/share/windows-resources/sbd/sbd.exe
+
+--
+ps 
+
+kali@kali:-$ ps -ef
+UID PIO PPID C STIME TTY TIME CMD
+root 1 0 0 10:18 ? 00:00:02 /sbin/init
+root 2 0 0 10:18 ? 00:00:00 [kthreadd]
+root 3 2 0 10:18 ? 00:00:00 [rcu_gp]
+root 4 2 0 10:18 ? 00:00:00 [rcu_par_gp]
+root s 2 0 10:18 ? 00:00:00 [kworker/0:0-events)
+root 6 2 0 10:18 ? 00:00:00 [kworker/0:0H-kblockd]
+root 7 2 0 10:18 ? 00:00:00 [kworker/u256:0-events_unbound
+root 8 2 0 10:18 ? 00:00:00 [mm_percpu_wq]
+root 9 2 0 10:18 ? 00:00:00 [ksofti rqd/0]
+root 10 2 0 10:18 ? 00:00:00 [rcu_sched]
+Listing 62 Common ps syntax to list all the processes currently running
+
+
+The -ef options we used above stand for:
+e: select all processes
+f: display full format listing (UID, PID, PPID, etc.)
+--
+
+kill >> kill process
+
+kali@kali:-~ kill 1387
+kali@kali:-$ ps aux I grep leafpad
+kali 1313 0.0 0.0 6144 888 pts/0 S+ 10:59 0:00 grep leafpad 
+
+
+------------
+
+tail
+
+
+
+
+ tail
+The most common use of tail75 is to monitor log file entries as they are being written. For example.
+we may want to monitor the Apache logs to see if a web server is being contacted by a given client
+we are attempting to attack via a client-side exploit. This example will do just that:
+kali@kali:-$ sudo tail -f /var/ log/ apache2/ access .log
+127.0.0.1 - - [02/Feb/2018:12:18:14 -0500) "GET / HTTP/1.1" 200 3380 "-" "Mozilla/5.0
+(Xll; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.011
+127.0.0.1 - - [02/ Feb/2018:12:18:14 -0500] "GET /icons/openlogo-75.png HTTP/1.l" 200 6
+040 "http://127.0.0. l /" "Mozilla/5.0 (Xll; Linux x86_64; rv:52.0) Gecko/20100101 Firef
+ox/52.0"
+127.0.0.1 - - [02/Feb/2018:12:18:15 -0500) "GET /favicon.ico HTTP/1.l" 404 500 "-" "Mo
+zilla/5.0 (Xll; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.011
+
+
+
+The -f optlon updates the output as the target file grows.
+
+
+--
+watch
+
+kali@kali:-$ watch -n 5 w
+Every 5.0s: w kali: Tue Jan 23 21:06:03 2018
+21:06:03 up 7 days, 3:54, 1 user, load average: 0.18, 0.09, 0.03
+USER TTY FROM LOGIN@ IDLE JCPU PCPU WHAT
+kali tty2 :0 16Jan18 7days 16:29 2.51s /usr/bin/python 
+
+
+--
+wget
+
+downloads files using the HTTP/HTTPS and FTP protocols.
+
+--
+curl
+
+tool to transfer data to or from a server using a host of protocols including IMAP/S,
+POP3/S, SCP, SFTP, SMB/S, SMTP/S, TELNET, TFTP, and others. A penetration tester can use this
+to download or upload files and build complex requests. 
+
+--
+axel
+
+ download accelerator that transfers a file from a FTP or HTTP server through multiple
+connections. This tool has a vast array of features, but the most common is -n, which is used to
+specify the number of multiple connections to use. In the following example, we are also using the
+-a option for a more concise progress indicator and -o to specify a different file name for the
+downloaded file.
+kali@kali :~$ axel -a -n 28 -o report_axel.pdf https://www.offensive-security.com/repor
+ts/penetration-testing-sample-report-2813.pdf
+Initializing download: https://www.offensive-security.com/reports/penetration-testingFile size: 27691955 bytes
+Opening output file report_axel.pdf
+Starting download
+Connection 0 finished
+Connection 1 finished
+Connection 2 f i nished
+Connection 3 finished
+Connection 4 finished
+Connection 5 finished
+Connection 6 finished
+Connection 7 finished
+Connection 8 finished
+Connection 9 finished
+Connection 10 finished
+Connection 11 finished
+Connection 13 finished
+Connection 14 finished
+Connection 15 finished
+Connection 16 finished 
+Connection 18 finished
+(100~6] [ .••••.•••••.••••..••••••••••.••••.•••• • .• • • • •. • • • • · • • • • • · • • • • • · • • • • · • • • • • • • • • •
+••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••• J
+[ 11.lMB/s] [00:00] 
+
+
+--------0-------00--------000-------------000-------
+
+
+Bash History Customization 
+
+
+kali @kali:-$ alias lsa='ls -la'
+kali@kali:~$ lsa
+total 8308
+- rw------- 1 kali kali
+-rw-r--r-- 1 kali kali
+drwx------ 9 kali kali
+5542 J an 22 09:56 .bash_history
+3391 Apr 25 2017 .bashrc
+4096 Oct 2 21:29 .cache 
+
+
+
+kal i@kali:-$ alias mkdir='ping -c 1 localhost'
+kali@kali:~$ mkdir
+PING localhost(localhost (::1)) 56 data bytes
+64 bytes from localhost (::1): icmp_seq=l tt1=64 time=0.121 ms
+--- localhost ping statistics ---
+1 packets transmitted, l received, 0% packet loss, time ems
+rtt min/avg/max/mdev = 0.121/0.121/0.121/0.000 ms 
+
+
+
+kali@kali:-$ unalias mkdir
+kali@kali:-$ mkdir
+mkdir: missing operand
+Try 1mkdir --help' for more information
+
+
+Persistent Bash Customization
+
+kali@kali:~$ cat -/.bashrc
+# ~/.bashrc: executed by bash(l) for non-login shells.
+# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
+n for examples
+# for setting history length see HISTSIZE and HISTFI LESIZE in bash(l)
+HISTSIZE=l008
+HISTFILESIZE=2800
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" I I eval "$(dircolors -
+alias ts=•ts --color=auto
+
+
+
 
