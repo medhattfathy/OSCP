@@ -236,3 +236,105 @@ kali@kali:~$
 
 *By default. the command history is saved to the .baslulistory file in the user home directory. Two
 environment variables control the history size: Hf STSf ZE and HfSTFf LESfZE
+
+
+---------------
+
+
+ Piping and Redirection
+
+kali@kali:~$ t s
+Desktop Documents Downloads Music Pictures Public Templates Videos
+kali@kali:~$ echo "test"
+test
+kali@kali:~$ echo "test" > redirection_test.txt
+kali@kali:~$ t s
+Desktop Documents Downloads Music Pictures Public redirection_test.txt Template
+kali@kali:~$ cat redirection_test.txt
+test
+kali@kali:~$ e cho "Kati Linux i s an open source project" > redirection_test.txt
+kali@kali:~$ cat redirection_test .t xt
+Kali Linux is an open source project
+
+
+Redirecting to an Existing File
+To append additional data to an existing file ( as opposed to overwriting the file) use the > > operator:
+kali@kali:~$ echo "that is maintained and funded by Offensive Security" » redi rection
+_test.txt
+kali@kali:~$ cat redirection_test,txt
+Kali Linux is an open source project
+that is maintained and funded by Offensive Security 
+
+
+
+Redirecting from a File
+
+kali @kali:~$ wc -m < redirection_test.txt
+89
+
+
+Redirecting STDERR
+
+kali@kali:~$ ls •
+Desktop Documents Downloads Music Pictures Public redirection_test.txt Template
+kali@kali:~$ l s , / test
+ls: cannot access '/test': No such file or directory
+kali@kali:~$ ls . / test 2>error.txt
+kali@kali:~$ cat error.txt
+ls: cannot access '/test': No such file or directory
+
+-----------
+
+Piping
+ let's have a look at how to redirect the output from one command into the input of another. Consider this example:
+kali@kali:~$ cat error.txt
+ls: cannot access '/test': No such file or directory
+kali@kali:~$ cat error.txt wc -m
+53
+kali@kali:~$ cat error.txt wc -m > count .t xt
+kali@kali:~$ cat count.t xt
+53 
+
+-----------
+
+
+Text Searching and Manipulation
+
+ grep 
+ 
+ 
+kali@kali:-$ ls - la /usr/bin I grep zip
+-rwxr-xr-x 3 root root 34480 Jan 29 2017 bunzip2
+-rwxr-xr-x 3 root root 34480 Jan 29 2017 bzip2
+-rwxr-xr-x 1 root root 13864 Jan 29 2017 bzip2recover
+-rwxr-xr-x 2 root root 2301 Mar 14 2016 gunzip
+-rwxr-xr-x 1 root root 105172 Mar 14 2016 gzip
+
+
+sed 
+kali@kali:-$ echo "I need to try hard" I sed 's/hard/harder/'
+I need to try harder
+
+cut
+kali@kali:-$ echo "I hack binades,web apps,mobile apps, and just about anything else"
+| cut - f 2 - d ","
+web apps 
+
+kali@kali:-$ cut -d ":" -f 1 /etc/passwd
+root
+daemon
+bin 
+
+ awk 
+ 
+ kali@kali:~$ echo "hetto::there::friend" | awk -F "::" '{print $1, $3}'
+hello friend 
+
+ 
+
+
+
+
+
+
+
