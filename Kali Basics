@@ -9,6 +9,26 @@
 
 
 * Basic Linux Commands
+---
 
+ Listing Files 
+ 
+ ls - List files in directory
+ls -ltr - Sort list by last modified. -time -reverse
+file - Show info about file. What type of file it is. If it is a binary or text file for example.
+cat - Output content of file.
+less - Output file but just little bit at a time. Use this one. Not more.
+Use /searchterm to search. It is the same command as in vim. n to scroll to next search result. Press q to quit.
+more - Output file but just little bit at a time. less is better.
+
+---
+Navigating
+
+pwd - Print working directory
+cd - Change directory
+cd ~ - Change directory to your home directory
+
+
+---
 
 
