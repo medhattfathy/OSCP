@@ -32,3 +32,25 @@ cd ~ - Change directory to your home directory
 ---
 
 
+A little bit of everything
+history - Show commands history
+
+----
+
+
+Working with files
+touch - Create a new file.
+cp - Copy
+mkdir - Make directory.
+mkdir -p  Make entire directory structure
+rm - Remove file 
+rm -rf  Remove recursively and its content. Very dangerous command!
+
+----
+
+Finding Files
+
+Find is slower than locate but a lot more thorough. You can search for files recursively and with regex and a lot of other features.
+# This will send all permissions denied outputs to dev/null.
+find / -name file 2>/dev/null
+
