@@ -104,5 +104,45 @@ service or init scripts. To see a table of all available services, run systemctl
 kali@kali:~s systemctl list-unit-files 
 
 
+-------
 
 
+Install package
+
+Example of how to install something with apt:
+kali@kali:~$ sudo apt-get install nmap
+
+Remove packages
+This can be tricky. First find the package
+kali@kali:~$ dpkg --list
+
+Then you find it in your list.
+kali@kali:~$ sudo apt-get --purge remove nameOfProgram
+
+
+update the list of  available packages
+
+kali@kali:~$ sudo apt update 
+
+
+ upgrade the installed packages and core system
+to the latest versions using the  apt upgrade command such as apt upgrade metasploit-framework.
+
+
+ apt-cache search command displays much of the information stored in the internal cached
+package database. For example, let's say we would like to install the pure-ftpd application via APT.
+The first thing we have to do is to find out whether or not the application is present in the Kali Linux
+repositories
+
+kali@kali:-$ apt-cache search pure-ftpd 
+
+To confirm that the resource-agents package description really contains the "pure-ftpd· keyword,
+pass the package name to apt show as follows:
+kali@kali:~$ apt s how resource-agent s 
+
+
+ dpkg
+dpkg is the core tool used to install a package  it does not require an Internet connection.
+kali@kali:-$ sudo dpkg -i man-db_2.1.e.2-s_amd64.deb 
+
+------------------
