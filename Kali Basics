@@ -1,2 +1,8 @@
 Finding Your Way Around Kali 
 
+/bin - basic programs (Is, cd, cat, etc.)
+/sbin- system programs (fdisk, mkfs, sysctl, etc)
+/etc - configuration flies
+/tmp- temporary files (typically deleted on boot)
+/usr/bin - applications (apt, neat, nmap, etc.)
+/usr/share- application support and data files
