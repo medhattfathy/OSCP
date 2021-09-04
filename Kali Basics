@@ -70,4 +70,39 @@ which bash
 
 Managing Kali Linux Services
 
+SSH Service
+The Secure SHell (SSH)
+43 service is most commonly used to remotely access a computer, using a
+secure, encrypted protocol. The SSH service is TCP-based and listens by default on port 22. To
+start the SSH service in Kali, we run systemctl with the start option followed by the service name
+(ssh in this example):
+kali@kali:-$ sudo systemctl start ssh
+
+If we want to have the SSH service start automatically at boot time (as many users prefer), we
+simply enable it using the systemctl command. However, be sure to change the default password
+first!
+kali@kali:-$ sudo systemctl enable ssh 
+
+
+
+
+HTTP Service
+
+The Apache HTTP service is often used during a penetration test, either for hosting a site, or
+providing a platform for downloading files to a victim machine. The HTTP service is TCP-based and 
+listens by default on port 80. To start the HTTP service in Kali, we can use systemctl. as we did
+when starting the SSH service, replacing the service name with "apache2·:
+kali@kali:~S sudo systemctl start apache2 
+
+To have the HTTP service start at boot time, much like with the SSH service, we need to explicitly
+enable it with systemctl. and its enable option:
+ka1i@kali: ~$ sudo systemctl enable apache2
+
+
+Most services in Kali Linux are operated in much the same way as SSH and HTTP, through their
+service or init scripts. To see a table of all available services, run systemctl with the list-unitfi\es option:
+kali@kali:~s systemctl list-unit-files 
+
+
+
 
